@@ -27,11 +27,11 @@ Mac: python3 spider.py
 Win: del spider.sqlite
 Win: spider.py
 
-Enter web url or enter: http://www.dr-chuck.com/
-['http://www.dr-chuck.com']
+Enter web url or enter: https://twitter.com/
+['https://twitter.com']
 How many pages:2
-1 http://www.dr-chuck.com/ 12
-2 http://www.dr-chuck.com/csev-blog/ 57
+1 https://twitter.com/ 12
+2 https://twitter.com/privacy (235653) 
 How many pages:
 
 In this sample run, we told it to crawl a website and retrieve two
@@ -43,12 +43,12 @@ each successive run of spider.py is additive.
 Mac: python3 spider.py
 Win: spider.py
 
-Enter web url or enter: http://www.dr-chuck.com/
-['http://www.dr-chuck.com']
+Enter web url or enter: https://twitter.com/
+['https://twitter.com']
 How many pages:3
-3 http://www.dr-chuck.com/csev-blog 57
-4 http://www.dr-chuck.com/dr-chuck/resume/speaking.htm 1
-5 http://www.dr-chuck.com/dr-chuck/resume/index.htm 13
+1 https://twitter.com/  2
+2 https://twitter.com/privacy (235653) 29 
+5 https://twitter.com/settings (115329)  2
 How many pages:
 
 You can have multiple starting points in the same database -
@@ -62,10 +62,10 @@ run spdump.py as follows:
 Mac: python3 spdump.py
 Win: spdump.py
 
-(5, None, 1.0, 3, u'http://www.dr-chuck.com/csev-blog')
-(3, None, 1.0, 4, u'http://www.dr-chuck.com/dr-chuck/resume/speaking.htm')
-(1, None, 1.0, 2, u'http://www.dr-chuck.com/csev-blog/')
-(1, None, 1.0, 5, u'http://www.dr-chuck.com/dr-chuck/resume/index.htm')
+(5, None, 1.0, 3, u'https://twitter.com/csev-blog')
+(3, None, 1.0, 4, u'https://twitter.com/speaking')
+(1, None, 1.0, 2, u'https://twitter.com/setting')
+(1, None, 1.0, 5, u'https://twitter.com/privacy/previous version')
 4 rows.
 
 This shows the number of incoming links, the old page rank, the new page
@@ -89,15 +89,15 @@ You can dump the database again to see that page rank has been updated:
 Mac: python3 spdump.py
 Win: spdump.py
 
-(5, 1.0, 0.985, 3, u'http://www.dr-chuck.com/csev-blog')
-(3, 1.0, 2.135, 4, u'http://www.dr-chuck.com/dr-chuck/resume/speaking.htm')
-(1, 1.0, 0.659, 2, u'http://www.dr-chuck.com/csev-blog/')
-(1, 1.0, 0.659, 5, u'http://www.dr-chuck.com/dr-chuck/resume/index.htm')
+(5, None, 1.0, 3, u'https://twitter.com/csev-blog')
+(3, None, 1.0, 4, u'https://twitter.com/speaking')
+(1, None, 1.0, 2, u'https://twitter.com/setting')
+(1, None, 1.0, 5, u'https://twitter.com/privacy/previous version')
 4 rows.
 
 You can run sprank.py as many times as you like and it will simply refine
 the page rank the more times you run it.  You can even run sprank.py a few times
-and then go spider a few more pages sith spider.py and then run sprank.py
+and then go spider a few more pages with spider.py and then run sprank.py
 to converge the page ranks.
 
 If you want to restart the Page Rank calculations without re-spidering the
