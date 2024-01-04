@@ -30,10 +30,15 @@ Win: del spider.sqlite
 Win: spider.py
 
 Enter web url or enter: https://twitter.com/
+
 ['https://twitter.com']
+
 How many pages:2
+
 1 https://twitter.com/ 12
-2 https://twitter.com/privacy (235653) 
+
+2 https://twitter.com/privacy (235653)
+
 How many pages:
 
 In this sample run, we told it to crawl a website and retrieve two
@@ -46,11 +51,17 @@ Mac: python3 spider.py
 Win: spider.py
 
 Enter web url or enter: https://twitter.com/
+
 ['https://twitter.com']
+
 How many pages:3
+
 1 https://twitter.com/  2
+
 2 https://twitter.com/privacy (235653) 29 
+
 5 https://twitter.com/settings (115329)  2
+
 How many pages:
 
 You can have multiple starting points in the same database -
@@ -65,9 +76,13 @@ Mac: python3 spdump.py
 Win: spdump.py
 
 (5, None, 1.0, 3, u'https://twitter.com/csev-blog')
+
 (3, None, 1.0, 4, u'https://twitter.com/speaking')
+
 (1, None, 1.0, 2, u'https://twitter.com/setting')
+
 (1, None, 1.0, 5, u'https://twitter.com/privacy/previous version')
+
 4 rows.
 
 This shows the number of incoming links, the old page rank, the new page
@@ -82,8 +97,11 @@ Mac: python3 sprank.py
 Win: sprank.py
 
 How many iterations:2
+
 1 0.546848992536
+
 2 0.226714939664
+
 [(1, 0.559), (2, 0.659), (3, 0.985), (4, 2.135), (5, 0.659)]
 
 You can dump the database again to see that page rank has been updated:
@@ -92,9 +110,13 @@ Mac: python3 spdump.py
 Win: spdump.py
 
 (5, None, 1.0, 3, u'https://twitter.com/csev-blog')
+
 (3, None, 1.0, 4, u'https://twitter.com/speaking')
+
 (1, None, 1.0, 2, u'https://twitter.com/setting')
+
 (1, None, 1.0, 5, u'https://twitter.com/privacy/previous version')
+
 4 rows.
 
 You can run sprank.py as many times as you like and it will simply refine
@@ -102,35 +124,56 @@ the page rank the more times you run it.  You can even run sprank.py a few times
 and then go spider a few more pages with spider.py and then run sprank.py
 to converge the page ranks.
 
+
 If you want to restart the Page Rank calculations without re-spidering the
 web pages, you can use spreset.py
 
 Mac: python3 spreset.py
+
 Win: spreset.py
 
 All pages set to a rank of 1.0
 
 Mac: python3 sprank.py
+
 Win: sprank.py
 
 How many iterations:50
+
 1 0.546848992536
+
 2 0.226714939664
+
 3 0.0659516187242
+
 4 0.0244199333
+
 5 0.0102096489546
+
 6 0.00610244329379
+
 ...
+
 42 0.000109076928206
+
 43 9.91987599002e-05
+
 44 9.02151706798e-05
+
 45 8.20451504471e-05
+
 46 7.46150183837e-05
+
 47 6.7857770908e-05
+
 48 6.17124694224e-05
+
 49 5.61236959327e-05
+
 50 5.10410499467e-05
+
 [(512, 0.02963718031139026), (1, 12.790786721866658), (2, 28.939418898678284), (3, 6.808468390725946), (4, 13.469889092397006)]
+
 
 For each iteration of the page rank algorithm it prints the average
 change per page of the page rank.   The network initially is quite
@@ -146,7 +189,9 @@ Mac: python3 spjson.py
 Win: spjson.py
 
 Creating JSON output on spider.js...
+
 How many nodes? 30
+
 Open force.html in a browser to view the visualization
 
 You can view this data by opening the file force.html in your web browser.
