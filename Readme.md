@@ -157,6 +157,10 @@ that is represented by the node.
 This visualization is provided using the force layout from:
 
 ![web_graph](https://github.com/AshutoshYadav2001/web-rank-visualizer/assets/127925686/89edc130-fe5c-45ac-8c7d-d3d4b7e95708)
+<<<<<<< HEAD:Readme.md
+=======
+
+>>>>>>> 7e49a359b7f1d563736ccfa9888a18aa41f1aa87:readme.txt
 
 If you rerun the other utilities and then re-run spjson.py - you merely
 have to press refresh in the browser to get the new data from spider.js.
