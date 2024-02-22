@@ -44,7 +44,7 @@ function loadData(json) {
       .data(json.nodes)
       .enter().append("circle")
       .attr("class", "node")
-      .attr("r", function(d) { return getrank(d.rank); } )
+      .attr("r", function(d) { return getrank(d.rank) * 1.5; } )  // Increase the size of the circles
       .style("fill", function(d) { return getcolor(d.rank); })
       .on("dblclick",function(d) { 
             if ( confirm('Do you want to open '+d.url) ) 
@@ -53,8 +53,20 @@ function loadData(json) {
         })
       .call(force.drag);
 
+  // Add probability text
+  var probText = svg.selectAll(".prob")
+      .data(json.nodes)
+      .enter().append("text")
+      .attr("class", "prob")
+      .attr("text-anchor", "middle")
+      .attr("dy", ".35em")
+      .style("fill", "white")
+      .style("font-size", "10px") // Set the font size to 10px
+      .text(function(d) { return d.rank.toFixed(1); }); // Display probability
+
   node.append("title")
       .text(function(d) { return d.url; });
+
 
   force.on("tick", function() {
     link.attr("x1", function(d) { return d.source.x; })
@@ -64,6 +76,10 @@ function loadData(json) {
 
     node.attr("cx", function(d) { return d.x; })
         .attr("cy", function(d) { return d.y; });
+
+    // Position probability text within each node
+    probText.attr("x", function(d) { return d.x; })
+            .attr("y", function(d) { return d.y; });
   });
 
 }
